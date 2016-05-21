@@ -1,0 +1,26 @@
+upstream mobileapp {
+  server mobileapp:443;
+}
+
+upstream pipeline {
+  server pipeline:443;
+}
+
+server {
+  listen 443;
+
+  ssl on;
+  ssl_certificate /etc/nginx/certs/example.com/server.crt;
+  ssl_certificate_key /etc/nginx/certs/example.com/server.key;
+
+  client_max_body_size       3M;
+
+  location / {
+    try_files $uri @upstream_proxy;
+  }
+
+  location @upstream_proxy {
+    proxy_pass         https://$host;
+    proxy_set_header   Host $host;
+  }
+}
