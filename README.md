@@ -1,5 +1,5 @@
 
-# nginx-docker-dev-reverse-proxy
+# nginx-docky-proxy
 
 The NGINX reverse proxy for development environments in Docker containers.
 
