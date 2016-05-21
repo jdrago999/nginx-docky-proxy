@@ -21,20 +21,24 @@ Because docker-compose dev environments can be tricky when it comes to https, po
 ## Instructions for Use
 
 1. Update sites-enabled/default to match your proxy needs.
-    upstream somecontainer {
-      server somecontainer:3000;
-    }
+```
+upstream somecontainer {
+  server somecontainer:3000;
+}
+```
 2. Update your `/etc/hosts` to match `$(docker-machine ip) somecontainer`
 3. build via:
-    docker build -t myproj/nginx:$(date +"%Y%m%d") .
+    * `docker build -t myproj/nginx:$(date +"%Y%m%d") .`
 4. Use in your docker-compose.yml
-    ...
-    nginx:
-      image: myproj/nginx:1234567890
-      volumes:
-        - nginx/sites-enabled:/etc/nginx/sites-enabled
-      ports:
-        - 443:443
+```
+...
+nginx:
+  image: myproj/nginx:1234567890
+  volumes:
+    - nginx/sites-enabled:/etc/nginx/sites-enabled
+  ports:
+    - 443:443
+```
 5. `docker-compose up`
 6. Navigate to https://somecontainer/
 7. ???
