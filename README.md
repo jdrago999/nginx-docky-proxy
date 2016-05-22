@@ -20,7 +20,7 @@ Because docker-compose dev environments can be tricky when it comes to https, po
 
 ## Instructions for Use
 
-* Update sites-enabled/default to match your proxy needs.
+* Update `sites-enabled/default` to match your proxy needs.
 ```
 upstream somecontainer {
   server somecontainer:443;
