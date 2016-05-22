@@ -23,7 +23,7 @@ Because docker-compose dev environments can be tricky when it comes to https, po
 * Update sites-enabled/default to match your proxy needs.
 ```
 upstream somecontainer {
-  server somecontainer:3000;
+  server somecontainer:443;
 }
 ```
 * Update your `/etc/hosts` to match `$(docker-machine ip) somecontainer`
