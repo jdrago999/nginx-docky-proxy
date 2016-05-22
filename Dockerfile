@@ -22,4 +22,8 @@ RUN \
 
 COPY ./sites-enabled /etc/nginx/sites-enabled
 
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+
 CMD ["/bin/bash"]
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
