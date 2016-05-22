@@ -9,6 +9,8 @@ Because docker-compose dev environments can be tricky when it comes to https, po
 
 ## What does it do?
 
+Your Browser -> `docker-machine` -> nginx -> yourcontainer
+
   * We use NGINX to accept all requests over SSL using a self-signed certificate.
   * We update `sites-enabled/default` to specify our "upstream" hosts.
     * An upstream host is your web application running on another container.
