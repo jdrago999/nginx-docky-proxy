@@ -1,9 +1,17 @@
-upstream mobileapp {
-  server mobileapp:443;
-}
 
-upstream pipeline {
-  server pipeline:443;
+server {
+  listen 80;
+
+  client_max_body_size       3M;
+
+  location / {
+    try_files $uri @upstream_proxy;
+  }
+
+  location @upstream_proxy {
+    proxy_pass         http://$host;
+    proxy_set_header   Host $host;
+  }
 }
 
 server {
